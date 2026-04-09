@@ -1,0 +1,133 @@
+_color: '#AAAAAA'
+
+_labelTemplates:
+
+  - ''
+
+  - ''
+
+  - |
+
+    {% if (state | float('f')) == 'f' -%}
+
+      {{ state }}
+
+    {% else -%}
+
+      {{ state | round(2) }}{{unit_of_measurement}}
+
+    {% endif %}
+
+ 
+
+lock:
+
+  states:
+
+    locked:
+
+      icon: mdi:door-closed-lock
+
+      color: '#00FF00'   # green
+
+ 
+
+    unlocked:
+
+      icon: mdi:door-open
+
+      color: '#FF0000'   # red
+
+ 
+
+light:
+
+  states:
+
+    on:
+
+      #icon: mdi:lightbulb-on
+
+      color: '#FFD700'
+
+    off:
+
+      #icon: mdi:lightbulb-outline
+
+      color: '#888888'
+
+ 
+
+switch:
+
+  states:
+
+    on:
+
+      #icon: mdi:toggle-switch
+
+      color: '#FFD700' #blue
+
+    off:
+
+      #icon: mdi:toggle-switch-off
+
+      color: '#888888'
+
+     
+
+fan:
+
+  states:
+
+    on:
+
+      color: '#00BFFF'
+
+    off:
+
+      color: '#888888'
+
+     
+
+sensor:
+
+  classes:
+
+    temperature:
+
+      icon: mdi:home-thermometer-outline
+
+      color: |
+
+        {% set t = state | float %}
+
+        {% if t <= 32 %}
+
+          #0000FF
+
+        {% elif t <= 50 %}
+
+          #00BFFF
+
+        {% elif t <= 65 %}
+
+          #90EE90
+
+        {% elif t <= 75 %}
+
+          #ADFF2F
+
+        {% elif t <= 85 %}
+
+          #FFFF00
+
+        {% elif t <= 95 %}
+
+          #FFA500
+
+        {% else %}
+
+          #FF0000
+
+        {% endif %}
